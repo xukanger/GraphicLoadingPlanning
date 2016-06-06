@@ -11,20 +11,27 @@
     <constant name="struts.action.excludePattern" value="/static/.*?" />
 
 
-    <package name="adminDefault" namespace="/" extends="struts-default">
+    <package name="userDefault" namespace="/" extends="struts-default">
     	<interceptors>
-    		<interceptor name="UserCheckInterceptor" class="cn.annpeter.insurance.interceptor.AuthInterceptor"></interceptor>
-    		<interceptor-stack name="insurance-stack">
-    			<interceptor-ref name="defaultStack"></interceptor-ref>
-    			<interceptor-ref name="UserCheckInterceptor"></interceptor-ref>
+			<interceptor name="UserCheckInterceptor" class="com.just.yt.project.interceptors.UserCheckInterceptor"/>
+    		<interceptor-stack name="user-stack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="UserCheckInterceptor"/>
     		</interceptor-stack>
     	</interceptors>
-        <default-interceptor-ref name="insurance-stack"></default-interceptor-ref>
+		<default-interceptor-ref name="user-stack"/>
         <global-results>
-            <result name="error"></result>
-        </global-results>
+			<result name="noLogin" type="redirect">/jsp/login.jsp</result>
+			<result name="noPower" type="redirect">/jsp/error.jsp</result>
+		</global-results>
     </package>
 
 
+	<package name="loginDefault" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="success">/jsp/index.jsp</result>
+			<result name="noLogin" type="redirect">/jsp/login.jsp</result>
+		</global-results>
+	</package>
 </struts>
 
