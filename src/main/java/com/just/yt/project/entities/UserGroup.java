@@ -1,7 +1,9 @@
 package com.just.yt.project.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by yt on 2016/6/5.
@@ -9,8 +11,11 @@ import javax.persistence.Id;
 @Entity(name = "usergroup")
 public class UserGroup {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
+    @OneToMany(cascade= CascadeType.REMOVE ,fetch = FetchType.LAZY, mappedBy = "userGroup")
+    Set<User> userSet;
 
     String name;
 
@@ -33,5 +38,10 @@ public class UserGroup {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

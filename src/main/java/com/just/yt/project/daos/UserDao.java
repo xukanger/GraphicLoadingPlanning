@@ -5,6 +5,7 @@ import com.just.yt.project.entities.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by yt on 2016/6/5.
@@ -14,20 +15,22 @@ public class UserDao extends AbstractDao{
 
 
     public List<User> list(final String where) throws Exception {
-        return (List<User>) super.list("user",where);
+        return (List<User>) super.list("_user",where);
     }
 
     public User getObject(final String where){
-        return (User) super.getObject("user",where);
+        return (User) super.getObject("_user",where);
     }
 
     public List<User> listByPage(final String where, Page<Object> page){
-        return (List<User>) super.listByPage("user",where,page);
+        return (List<User>) super.listByPage("_user",where,page);
     }
 
     public Long getCount(final String where){
-        return super.getCount("user",where);
+        return super.getCount("_user",where);
     }
 
-
+    public Boolean checkUserExistByName(final String name){
+        return !Objects.isNull(getObject("account_name="+name));
+    }
 }

@@ -31,7 +31,7 @@ public class AbstractDao {
      * 删除对象
      * @param obj
      */
-    public void delete(final Object obj) throws Exception {
+    public void delete(final Object obj)  {
         getSession().delete(obj);
     }
 
@@ -49,7 +49,7 @@ public class AbstractDao {
      * @param where
      * @return
      */
-    public Long getCount(final String tableName,String where){
+    Long getCount(final String tableName, String where){
         where = (where != null && where.length() != 0) ? " WHERE "+where : "";
         String sql = MessageFormat.format("SELECT COUNT(*) FROM {0} {1}", tableName, where);
         return  ((BigInteger) getSession().createSQLQuery(sql).uniqueResult()).longValue();
@@ -61,7 +61,7 @@ public class AbstractDao {
      * @param where
      * @return
      */
-    public Object getObject(final String tableName, String where) {
+    Object getObject(final String tableName, String where) {
         where = (where != null && where.length() != 0) ? " WHERE "+where : "";
         String hql = MessageFormat.format("FROM {0} {1}", tableName, where);
         return getSession().createQuery(hql).uniqueResult();
@@ -73,7 +73,7 @@ public class AbstractDao {
      * @param where
      * @return
      */
-    public List<?> list(String tableName, String where){
+    List<?> list(String tableName, String where){
         where = (where != null && where.length() != 0) ? " WHERE "+where : "";
         String hql = MessageFormat.format("FROM {0} {1}", tableName, where);
         Query query = getSession().createQuery(hql);
@@ -87,7 +87,7 @@ public class AbstractDao {
      * @param page
 	 * @return
 	 */
-    public List<?> listByPage(String tableName, String where, final Page<Object> page) {
+    List<?> listByPage(String tableName, String where, final Page<Object> page) {
         where = (where != null && where.length() != 0) ? " WHERE "+where : "";
         String hql = MessageFormat.format("FROM {0} {1}", tableName, where);
         Query query = getSession().createQuery(hql);
@@ -96,11 +96,12 @@ public class AbstractDao {
         return query.list();
     }
 
-    public Session getSession(){
+
+    private Session getSession(){
         return sessionFactory.getCurrentSession();
     }
 
-    public Session openSession(){
+    private Session openSession(){
         return sessionFactory.openSession();
     }
 }

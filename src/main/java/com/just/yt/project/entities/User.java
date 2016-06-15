@@ -1,14 +1,17 @@
 package com.just.yt.project.entities;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import javax.persistence.*;
 import java.util.Set;
 
 /**
  * Created by yt on 2016/6/5.
  */
-@Entity(name = "user")
+@Entity(name = "_user")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String account_name;
@@ -31,12 +34,11 @@ public class User {
         this.password = password;
     }
 
-    @OneToOne
+    @ManyToOne
     private UserGroup userGroup;
 
-    @OneToMany(cascade= CascadeType.REMOVE ,fetch = FetchType.EAGER, mappedBy = "user")
-    private
-    Set<Planning> planningArrayList;
+    @OneToMany(cascade= CascadeType.REMOVE ,fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<Planning> planningArrayList;
 
 
     public UserGroup getUserGroup() {
@@ -62,5 +64,10 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

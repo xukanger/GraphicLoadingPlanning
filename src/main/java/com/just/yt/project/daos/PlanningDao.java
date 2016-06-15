@@ -14,19 +14,19 @@ public class PlanningDao extends AbstractDao{
 
 
     public List<Planning> list(final String where) throws Exception {
-        return (List<Planning>) super.list("plan",where);
+        return (List<Planning>) super.list("_plan",where);
     }
 
     public Planning getObject(final String where){
-        return (Planning) super.getObject("plan",where);
+        return (Planning) super.getObject("_plan",where);
     }
 
     public List<Planning> listByPage(final String where, Page<Object> page){
-        return (List<Planning>) super.listByPage("plan",where,page);
+        return (List<Planning>) super.listByPage("_plan",where,page);
     }
 
     public Long getCount(final String where){
-        return super.getCount("plan",where);
+        return super.getCount("_plan",where);
     }
 
 }

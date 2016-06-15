@@ -1,14 +1,17 @@
 package com.just.yt.project.entities;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by yt on 2016/6/5.
  */
-@Entity(name = "plan")
+@Entity(name = "_plan")
 public class Planning {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     String description;
@@ -70,5 +73,10 @@ public class Planning {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }
