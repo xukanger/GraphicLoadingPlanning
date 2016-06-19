@@ -10,15 +10,25 @@ import javax.persistence.Id;
 /**
  * Created by yt on 2016/6/5.
  */
-@Entity(name = "media_resource")
+@Entity(name = "t_media_resource")
 public class MediaResource {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+    private Integer id;
 
-    Long remain;
+    private Long remain;
 
-    Long sum;
+    private Long sum;
+
+    public String getResource_name() {
+        return resource_name;
+    }
+
+    public void setResource_name(String resource_name) {
+        this.resource_name = resource_name;
+    }
+
+    String resource_name;
 
     public Integer getId() {
         return id;

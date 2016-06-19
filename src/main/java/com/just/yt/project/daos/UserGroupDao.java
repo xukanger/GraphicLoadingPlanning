@@ -14,19 +14,19 @@ public class UserGroupDao extends AbstractDao{
 
 
     public List<UserGroup> list(final String where) throws Exception {
-        return (List<UserGroup>) super.list("usergroup",where);
+        return (List<UserGroup>) super.list("t_usergroup",where);
     }
 
     public UserGroup getObject(final String where){
-        return (UserGroup) super.getObject("usergroup",where);
+        return (UserGroup) super.getObject("t_usergroup",where);
     }
 
     public List<UserGroup> listByPage(final String where, Page<Object> page){
-        return (List<UserGroup>) super.listByPage("usergroup",where,page);
+        return (List<UserGroup>) super.listByPage("t_usergroup",where,page);
     }
 
     public Long getCount(final String where){
-        return super.getCount("usergroup",where);
+        return super.getCount("t_usergroup",where);
     }
 
 }

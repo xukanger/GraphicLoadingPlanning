@@ -13,21 +13,22 @@ import java.util.List;
 public class MediaResourceDao extends AbstractDao{
 
 
-    public List<MediaResource> list(final String where) throws Exception {
-        return (List<MediaResource>) super.list("media_resource",where);
+    public List<MediaResource> list(final String where) {
+        return (List<MediaResource>) super.list("t_media_resource",where);
     }
 
     public MediaResource getObject(final String where){
-        return (MediaResource) super.getObject("media_rescource",where);
+        return (MediaResource) super.getObject("t_media_rescource",where);
     }
 
     public List<MediaResource> listByPage(final String where, Page<Object> page){
-        return (List<MediaResource>) super.listByPage("media_resource",where,page);
+        return (List<MediaResource>) super.listByPage("t_media_resource",where,page);
     }
 
     public Long getCount(final String where){
-        return super.getCount("media_resource",where);
+        return super.getCount("t_media_resource",where);
     }
+
 
 
     public MediaResource update(final MediaResource mediaResource){

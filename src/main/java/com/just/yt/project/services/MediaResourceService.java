@@ -35,4 +35,18 @@ public class MediaResourceService {
     public List<MediaResource> list(){
         return new ArrayList<MediaResource>();
     }
+
+    public MediaResource getPercent(){
+        List<MediaResource> list=mediaResourceDao.list("");
+        long sum=0,remain=0;
+        for(MediaResource temp:list){
+            sum+=temp.getSum();
+            remain+=temp.getRemain();
+        }
+        MediaResource sumMR=new MediaResource();
+        sumMR.setSum(sum);
+        sumMR.setRemain(remain);
+        return sumMR;
+    }
+
 }

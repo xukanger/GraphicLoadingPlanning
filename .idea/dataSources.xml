@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="702247549">
+  <component name="DataSourceManagerImpl" format="xml" hash="2321316808">
     <data-source source="LOCAL" name="SQL Server (Microsoft) - planning@localhost" uuid="4e6343e8-bac8-4f4f-b4f4-d83353c74ea5">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>

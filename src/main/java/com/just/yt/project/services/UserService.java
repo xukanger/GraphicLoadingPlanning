@@ -17,8 +17,8 @@ public class UserService {
     UserDao userDao;
 
     public User loginIn(User user){
-        User checkedUser=userDao.getObject("account_name='"+user.getAccount_name()+"' AND "+"password='"+user.getPassword()+"'");
-        return checkedUser;
+        return userDao.getObject("account_name='"+user.getAccount_name()+
+                "' AND "+"password='"+user.getPassword()+"'");
     }
 
 
@@ -33,5 +33,11 @@ public class UserService {
     public User getObjectById(Integer id){
         return userDao.getObject("id="+id);
     }
+
+
+    public Long getCount(){
+        return userDao.getCount("");
+    }
+
 
 }

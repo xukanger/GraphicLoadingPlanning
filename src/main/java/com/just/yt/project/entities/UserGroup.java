@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Created by yt on 2016/6/5.
  */
-@Entity(name = "usergroup")
+@Entity(name = "t_usergroup")
 public class UserGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

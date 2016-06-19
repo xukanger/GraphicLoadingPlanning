@@ -8,18 +8,45 @@ import java.util.Date;
 /**
  * Created by yt on 2016/6/5.
  */
-@Entity(name = "_plan")
+@Entity(name = "t_plan")
 public class Planning {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    private Integer id;
 
-    String description;
+
+    private String title;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    private String description;
+
+    private Boolean active;
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 
     @Temporal(TemporalType.DATE)
+    private
     Date start_time;
 
     @Temporal(TemporalType.DATE)
+    private
     Date end_time;
 
     @ManyToOne(cascade= CascadeType.REMOVE)
@@ -33,7 +60,7 @@ public class Planning {
         this.loadnum = loadnum;
     }
 
-    Long loadnum;
+    private Long loadnum;
 
     public int getId() {
         return id;

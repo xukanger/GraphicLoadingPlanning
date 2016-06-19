@@ -15,19 +15,19 @@ public class UserDao extends AbstractDao{
 
 
     public List<User> list(final String where) throws Exception {
-        return (List<User>) super.list("_user",where);
+        return (List<User>) super.list("t_user",where);
     }
 
     public User getObject(final String where){
-        return (User) super.getObject("_user",where);
+        return (User) super.getObject("t_user",where);
     }
 
     public List<User> listByPage(final String where, Page<Object> page){
-        return (List<User>) super.listByPage("_user",where,page);
+        return (List<User>) super.listByPage("t_user",where,page);
     }
 
     public Long getCount(final String where){
-        return super.getCount("_user",where);
+        return super.getCount("t_user",where);
     }
 
     public Boolean checkUserExistByName(final String name){

@@ -6,6 +6,7 @@ import com.just.yt.project.untils.MyBeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by yt on 2016/6/8.
@@ -34,4 +35,12 @@ public class PlanService {
         return planningDao.getObject("id="+id);
     }
 
+
+    public Planning getPercent()  {
+        List<Planning> list=planningDao.list("");
+        long sum=0,remain=0;
+        for(Planning temp:list){
+
+        }
+    }
 }

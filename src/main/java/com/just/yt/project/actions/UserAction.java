@@ -24,7 +24,6 @@ public class UserAction extends AbstractAction{
 
     private User user;
 
-
     private String userGroupName;
 
     private static Logger logger= Logger.getLogger(UserAction.class);
@@ -40,11 +39,11 @@ public class UserAction extends AbstractAction{
     public String login(){
         User checkedUser;
         if(user==null||((checkedUser=userService.loginIn(user))==null)) {
-            logger.error("用户没有添加成功");
+            logger.error("用户没有登录成功");
             return "noLogin";
         }
         else{
-            logger.info(checkedUser+"用户添加成功");
+            logger.info(checkedUser+"用户登录成功");
             getSession().put("user",checkedUser);
             return "success";
         }
@@ -66,6 +65,7 @@ public class UserAction extends AbstractAction{
             return "noLogin";
         }
     }
+
 
 
 
