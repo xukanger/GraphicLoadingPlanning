@@ -15,6 +15,17 @@ public class Planning {
     private Integer id;
 
 
+    public MediaResource getMediaResource() {
+        return mediaResource;
+    }
+
+    public void setMediaResource(MediaResource mediaResource) {
+        this.mediaResource = mediaResource;
+    }
+
+    @ManyToOne
+    private MediaResource mediaResource;
+
     private String title;
 
     public void setId(Integer id) {

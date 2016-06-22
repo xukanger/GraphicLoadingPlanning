@@ -1,64 +1,44 @@
 package com.just.yt.project.actions;
 
 import com.just.yt.project.entities.MediaResource;
+import com.just.yt.project.services.MediaResourceService;
 import org.apache.log4j.Logger;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
-/**
- * Created by yt on 2016/6/8.
- */
-@ParentPackage("userDefault")
+@Controller
+@Namespace("/resource")
+@ParentPackage("loginDefault")
 public class ResourceAction extends AbstractAction{
 
-    Logger logger=Logger.getLogger(ResourceAction.class);
+    Logger logger= Logger.getLogger(ResourceAction.class);
 
-    Integer id;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Resource
-    MediaResource mediaResource;
+    MediaResourceService mediaResourceService;
 
-    public MediaResource getMediaResource() {
-        return mediaResource;
-    }
 
-    public void setMediaResource(MediaResource mediaResource) {
-        this.mediaResource = mediaResource;
-    }
-
-    @Action(value = "add",results = {
-            @Result(name = "success",location = "jsp/"),
+    @Action(value="list",results ={
+            @Result(name = "success", type = "redirect",location = "/view/resource/list.jsp"),
     })
-    String add(){
-
-        return "success";
+    public String list(){
+        return super.list(MediaResource.class, mediaResourceService);
     }
 
-    @Action(value = "index",results = {
-            @Result(name = "success",location = "jsp/"),
-            @Result(name = "index",location ="jsp/")
-    })
-    String index(){
-        return "success";
+
+
+    public MediaResourceService getMediaResourceService() {
+        return mediaResourceService;
     }
 
-    @Action(value = "profile",results = {
-            @Result(name = "success",location = "jsp"),
-            @Result(name = "index",location="jsp"),
-            @Result(name = "profile",location = "jsp/")
-    })
-    String profile(){
-        return "success";
+    public void setMediaResourceService(MediaResourceService mediaResourceService) {
+        this.mediaResourceService = mediaResourceService;
     }
+
 }
+

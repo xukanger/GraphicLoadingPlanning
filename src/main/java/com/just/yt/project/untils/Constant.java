@@ -10,5 +10,6 @@ public class Constant {
 
     public static final boolean DEBUG=true;
 
+    public static final int PAGE_SIZE=10;
 
 }

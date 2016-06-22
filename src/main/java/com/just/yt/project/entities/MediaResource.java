@@ -2,10 +2,8 @@ package com.just.yt.project.entities;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by yt on 2016/6/5.
@@ -19,6 +17,18 @@ public class MediaResource {
     private Long remain;
 
     private Long sum;
+
+
+    public Set<Planning> getPlanningSet() {
+        return planningSet;
+    }
+
+    public void setPlanningSet(Set<Planning> planningSet) {
+        this.planningSet = planningSet;
+    }
+
+    @OneToMany(cascade= CascadeType.REMOVE ,fetch = FetchType.LAZY, mappedBy = "mediaResource")
+    private Set<Planning> planningSet;
 
     public String getResource_name() {
         return resource_name;

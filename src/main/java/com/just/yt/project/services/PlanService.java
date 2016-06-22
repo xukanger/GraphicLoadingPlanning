@@ -1,5 +1,6 @@
 package com.just.yt.project.services;
 
+import cn.org.rapid_framework.page.Page;
 import com.just.yt.project.daos.PlanningDao;
 import com.just.yt.project.entities.Planning;
 import com.just.yt.project.untils.MyBeanUtils;
@@ -12,7 +13,8 @@ import java.util.List;
  * Created by yt on 2016/6/8.
  */
 @Service
-public class PlanService {
+public class PlanService extends AbstractService{
+
     @Resource
     PlanningDao planningDao;
 
@@ -36,11 +38,18 @@ public class PlanService {
     }
 
 
-    public Planning getPercent()  {
-        List<Planning> list=planningDao.list("");
-        long sum=0,remain=0;
-        for(Planning temp:list){
-
-        }
+    public Long getCount(){
+        return planningDao.getCount("");
     }
+
+    @Override
+    public List queryByPage(String where, Page page) {
+        return planningDao.listByPage(where,page);
+    }
+
+    @Override
+    public List list() {
+        return planningDao.list("");
+    }
+
 }

@@ -20,17 +20,16 @@
     		</interceptor-stack>
     	</interceptors>
 		<default-interceptor-ref name="user-stack"/>
-        <global-results>
-			<result name="noLogin" type="redirect">/jsp/login.jsp</result>
-			<result name="noPower" type="redirect">/jsp/error.jsp</result>
-		</global-results>
+        <!--<global-results>-->
+			<!--&lt;!&ndash;<result name="noLogin" type="redirect">/jsp/login.jsp</result>&ndash;&gt;-->
+			<!--&lt;!&ndash;<result name="noPower" type="redirect">/jsp/error.jsp</result>&ndash;&gt;-->
+		<!--</global-results>-->
     </package>
 
 
 	<package name="loginDefault" namespace="/" extends="struts-default">
 		<global-results>
-			<result name="success">/jsp/index.jsp</result>
-			<result name="noLogin" type="redirect">/jsp/login.jsp</result>
+			<result name="noLogin" type="redirect">/static/login.html</result>
 		</global-results>
 	</package>
 </struts>

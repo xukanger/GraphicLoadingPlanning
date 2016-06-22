@@ -2,15 +2,12 @@ package com.just.yt.project.interceptors;
 
 import com.just.yt.project.entities.User;
 import com.just.yt.project.entities.UserGroup;
-import com.just.yt.project.untils.Constant;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.ActionProxy;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import org.apache.log4j.Logger;
-import org.apache.struts2.StrutsStatics;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -36,10 +33,9 @@ public class UserCheckInterceptor extends AbstractInterceptor {
             logger.info("没有登录");
             return "noLogin";
         }
-
         else{
             UserGroup userGroup=user.getUserGroup();
-            logger.info("已经验证权限");
+            logger.debug("已经验证权限");
             //TODO
             return actionInvocation.invoke();
         }

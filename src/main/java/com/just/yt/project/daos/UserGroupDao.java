@@ -13,7 +13,7 @@ import java.util.List;
 public class UserGroupDao extends AbstractDao{
 
 
-    public List<UserGroup> list(final String where) throws Exception {
+    public List<UserGroup> list(final String where)  {
         return (List<UserGroup>) super.list("t_usergroup",where);
     }
 

@@ -1,17 +1,19 @@
 package com.just.yt.project.services;
 
+import cn.org.rapid_framework.page.Page;
 import com.just.yt.project.daos.UserDao;
 import com.just.yt.project.entities.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Objects;
 
 /**
  * Created by yt on 2016/6/6.
  */
 @Service
-public class UserService {
+public class UserService extends AbstractService{
 
     @Resource
     UserDao userDao;
@@ -37,6 +39,16 @@ public class UserService {
 
     public Long getCount(){
         return userDao.getCount("");
+    }
+
+    @Override
+    public List queryByPage(String where, Page page) {
+        return userDao.listByPage(where,page);
+    }
+
+    @Override
+    public List list() {
+        return userDao.list("");
     }
 
 

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.text.MessageFormat;
 import java.util.List;
 
@@ -52,7 +51,7 @@ public class AbstractDao {
     Long getCount(final String tableName, String where){
         where = (where != null && where.length() != 0) ? " WHERE "+where : "";
         String sql = MessageFormat.format("SELECT COUNT(*) FROM {0} {1}", tableName, where);
-        return  ((BigInteger) getSession().createSQLQuery(sql).uniqueResult()).longValue();
+        return ((Integer) getSession().createSQLQuery(sql).uniqueResult()).longValue();
     }
 
     /**
@@ -97,7 +96,7 @@ public class AbstractDao {
     }
 
 
-    private Session getSession(){
+    protected Session getSession(){
         return sessionFactory.getCurrentSession();
     }
 

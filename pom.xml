@@ -106,7 +106,11 @@
       <artifactId>struts2-spring-plugin</artifactId>
       <version>${struts2.version}</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-dojo-plugin</artifactId>
+      <version>${struts2.version}</version>
+    </dependency>
     <dependency>
       <groupId>com.googlecode.rapid-framework</groupId>
       <artifactId>rapid-core</artifactId>
@@ -201,7 +205,14 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.4</version>
     </dependency>
-   
+
+    <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-config-browser-plugin -->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-config-browser-plugin</artifactId>
+      <version>2.3.16.3</version>
+    </dependency>
+
 
 
   </dependencies>

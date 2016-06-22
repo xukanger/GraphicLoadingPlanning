@@ -14,7 +14,7 @@ public class UserGroup {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
-    @OneToMany(cascade= CascadeType.REMOVE ,fetch = FetchType.LAZY, mappedBy = "userGroup")
+    @OneToMany(cascade= CascadeType.REMOVE ,fetch = FetchType.EAGER, mappedBy = "userGroup")
     Set<User> userSet;
 
     String name;

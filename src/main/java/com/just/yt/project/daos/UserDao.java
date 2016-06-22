@@ -14,7 +14,7 @@ import java.util.Objects;
 public class UserDao extends AbstractDao{
 
 
-    public List<User> list(final String where) throws Exception {
+    public List<User> list(final String where)  {
         return (List<User>) super.list("t_user",where);
     }
 

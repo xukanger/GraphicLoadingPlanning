@@ -37,7 +37,7 @@ public class User {
     @ManyToOne
     private UserGroup userGroup;
 
-    @OneToMany(cascade= CascadeType.REMOVE ,fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(cascade= CascadeType.REMOVE ,fetch = FetchType.EAGER, mappedBy = "user")
     private Set<Planning> planningArrayList;
 
 
